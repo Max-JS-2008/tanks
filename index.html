@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title id="ti">tank 2d</title>
+	<link rel="shortcut icon" href="tank.ico" type="image/x-icon">
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+	body {
+		background-image: url('bg.png');
+	}
+	#t2 {
+		color: black;
+	}
+</style>
+<body>
+	<script type="text/javascript">
+		let standart = 0;
+		let y = 0;
+		let isright = false;
+		let isleft = false;
+		let isup = false;
+		let isdown = false;
+		
+		function big() {
+			water.height = water.height + 10
+		}
+		function small() {
+			water.height = water.height - 10
+		}
+		function reset() {
+			water.height = 70
+		}
+		function waterright() {
+			isright = true;
+			isleft = false;
+			isup = false;
+			isdown = false;
+			standart = standart + 10;
+			water.style = 'margin-left: ' + standart + 'px; transform: rotate(90deg); margin-top: ' + y + 'px'
+		}
+		function waterleft() {
+			isright = false;
+			isleft = true;
+			isup = false;
+			isdown = false;
+			standart = standart - 10;
+			water.style = 'margin-left: ' + standart + 'px' + ';' + ' transform: rotate(-90deg); margin-top: ' + y + 'px' 
+		}
+		function waterreset() {
+			standart = 0;
+			y = 0;
+			water.style = 'margin-left: ' + standart + 'px';
+		}
+		function waterdown() {
+			isright = false;
+			isleft = false;
+			isup = false;
+			isdown = true;
+			y = y + 10;
+			water.style = 'margin-left: ' + standart + 'px' + ';' + ' transform: rotate(180deg); margin-top: ' + y + 'px' 
+		}
+		function waterup() {
+			isright = false;
+			isleft = false;
+			isup = true;
+			isdown = false;
+			y = y - 10;
+			water.style = 'margin-left: ' + standart + 'px' + ';' + ' transform: rotate(0deg); margin-top: ' + y + 'px'
+		}
+		document.onkeypress = function (event) {
+			if (event.key == 'a') {
+				waterleft()
+			} else if (event.key == 'd') {
+				waterright()
+			} else if (event.key == 'z') {
+				big()
+			} else if (event.key == 'x') {
+				small()
+			} else if (event.key == 'r') {
+				waterreset()
+			} else if (event.key == 'f') {
+				reset()
+			} else if (event.key == 's') {
+				waterdown()
+			} else if (event.key == 'w') {
+				waterup()
+			} 
+		}
+	</script>
+	<h1 align="center" id="t"><a href="https://www.youtube.com/channel/UC9Ss4xrMPbm3gaVmDFYEvDQ" id="t2">Подпишись на Bomber Man</a></h1>
+	
+	<p align="center"><img src="tank.png" height="70px" id="water" style="margin-left: 0px;"></p>
+	<p align="center">
+</html>
